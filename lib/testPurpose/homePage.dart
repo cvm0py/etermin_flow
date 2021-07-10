@@ -1,56 +1,26 @@
+import 'package:etermin/widgets/my_appbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePageWidget extends StatefulWidget {
-  HomePageWidget({Key key}) : super(key: key);
+  HomePageWidget({Key ?key}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple[300],
-        title: Container(
-          width: 150,height: 50,
-                  child: Image.asset(
-            "assets/images/eter_logo.png",
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              //todo
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              //todo
-            },
-          ),
-        ],
-      ),
+      appBar: MyAppbarWidget(),
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -80,7 +50,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
                         child: TextFormField(
-                          controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
                             fillColor: Colors.white,

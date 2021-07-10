@@ -1,0 +1,60 @@
+{
+"success": true,
+"message": false,
+"status": 0,
+"responseObject": {
+"saloons": [
+{
+"id": 6,
+"name": "tahi massage",
+"address": "petrinjska ulica",
+"city": "zagreb",
+"neighbourhood": "centar",
+"zip": "390010",
+"isMen": true,
+"isWomen": true,
+"isDog": true,
+"isCat": false,
+"email": "mojkafic@gmail.com",
+"phone": "0912121103",
+"lat": "45.803761",
+"lng": "16.020339",
+"logo": "/resources/uploads/saloon/6/rsz_20170812_225800.jpg"
+},
+{
+"id": 11,
+"name": "Massage Salon",
+"address": "124 street ave",
+"city": "Split",
+"neighbourhood": "centar",
+"zip": "23113",
+"isMen": true,
+"isWomen": true,
+"isDog": false,
+"isCat": false,
+"email": "john@ddd.com",
+"phone": "343434343",
+"lat": "123.323232",
+"lng": "127.3232323",
+"logo": "/resources/uploads/saloon/none.jpg"
+},
+{
+"id": 13,
+"name": "Fast na Slow",
+"address": "ilica 412",
+"city": "Zagreb",
+"neighbourhood": "barutana",
+"zip": false,
+"isMen": true,
+"isWomen": true,
+"isDog": false,
+"isCat": false,
+"email": "jhsdfbjhasdb@gmail.com",
+"phone": "+684644",
+"lat": "49.126548",
+"lng": "10.256485",
+"logo": "/resources/uploads/saloon/13/Screenshot_4.jpg"
+}
+]
+}
+}

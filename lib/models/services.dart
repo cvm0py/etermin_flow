@@ -1,3 +1,4 @@
+
 class ServicesModel {
   static List<Item> items = [
   
@@ -10,7 +11,7 @@ class Item {
   final String description;
   final String image;
 
-  Item({this.id, this.name, this.description, this.image});
+  Item({required this.id,required this.name,required this.description, required this.image});
 
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
