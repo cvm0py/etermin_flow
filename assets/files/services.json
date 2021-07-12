@@ -8,49 +8,49 @@
 "id": 113,
 "name": "Hair Salon",
 "description": "Hair Salon",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Hair-salon-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Hair-salon-710x375.jpg"
 },
 {
 "id": 114,
 "name": "Beauty Salon",
 "description": "Beauty Salon",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Beauty-salon-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Beauty-salon-710x375.jpg"
 },
 {
 "id": 115,
 "name": "Facial Treatments",
 "description": "Facial Treatments",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Face-treatments-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Face-treatments-710x375.jpg"
 },
 {
 "id": 116,
 "name": "Pedicure",
 "description": "Pedicure",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Pedicure-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Pedicure-710x375.jpg"
 },
 {
 "id": 117,
 "name": "Manicure",
 "description": "Manicure",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Manicure-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Manicure-710x375.jpg"
 },
 {
 "id": 118,
 "name": "Body Treatments",
 "description": "Body Treatments",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/none.jpg"
+"logo": "/resources/uploads/saloon/none.jpg"
 },
 {
 "id": 119,
 "name": "Massage",
 "description": "Massage",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/Maasage-710x375.jpg"
+"logo": "/resources/uploads/saloon/services/Maasage-710x375.jpg"
 },
 {
 "id": 120,
 "name": "Solarium",
 "description": "Solarium",
-"logo": "http://etermin.cskaa.com:8282/resources/uploads/saloon/services/solarium.png"
+"logo": "/resources/uploads/saloon/services/solarium.png"
 }
 ]
 }

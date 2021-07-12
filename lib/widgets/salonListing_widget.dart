@@ -3,32 +3,41 @@ import 'package:flutter/material.dart';
 
 //todo
 class SalonListingWidget extends StatelessWidget {
-  // final Salon item;
-  // const SalonListingWidget({Key? key, required this.item}) : super(key: key);
+  final Salon salon;
+  const SalonListingWidget({Key? key, required this.salon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String _subtitle = salon.neighbourhood + " " + salon.city;
+    String _imageAddress = "http://etermin.cskaa.com:8282" + salon.logo;
+    String _gender = "Women";
+    if (salon.isMen && salon.isWomen) {
+      _gender = "Unisex";
+    } else if (salon.isMen) {
+      _gender = "Men";
+    } else if (salon.isWomen) {
+      _gender = "Women";
+    }
+
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height*0.353,
-    
+      height: MediaQuery.of(context).size.height * 0.353,
       child: Column(
-  
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 0.55 ,
+            height: MediaQuery.of(context).size.width * 0.55,
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: ExactAssetImage("assets/images/hairSalon.jpeg"),
+                image: NetworkImage(_imageAddress),
               ),
             ),
           ),
           Container(
-              color: Colors.grey[100],
+            color: Colors.grey[100],
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +48,7 @@ class SalonListingWidget extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Salon Name",
+                      salon.name,
                       style: TextStyle(
                         fontSize: 30,
                         fontStyle: FontStyle.italic,
@@ -50,24 +59,19 @@ class SalonListingWidget extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "neighbour + city",
+                      _subtitle,
                       style: TextStyle(
                         fontSize: 20,
                         fontStyle: FontStyle.italic,
                         color: Colors.deepPurple[400],
                       ),
                     ),
-                     SizedBox(
-                      height: 5,
-                    ),
                   ],
                 ),
-                _buildChip("Male", Color(0xFF9575CD)),
+                _buildChip(_gender, Color(0xFF9575CD)),
               ],
             ),
-            
           ),
-         
           Divider(
             color: Colors.grey[300],
             height: 10,

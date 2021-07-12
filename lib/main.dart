@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
       
       
       routes: {
-        "/": (context) => PetOrBeautyWidget(),
+        "/": (context) => BeautySalonCategory(),
         MyRoutes.homeRoute: (context) => HomePageWidget(),
-        MyRoutes.loginRoute: (context) => LoginPage()
+        MyRoutes.loginRoute: (context) => LoginPage(),
+       // MyRoutes.categoryExpandRoute:(context) => CategoryExpand(pageUrl: ,),
       },
     );
   }

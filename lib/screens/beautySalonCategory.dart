@@ -37,6 +37,8 @@ class _BeautySalonCategory extends State<BeautySalonCategory> {
 
   @override
   Widget build(BuildContext context) {
+ 
+
     return Scaffold(
       key: scaffoldKey,
       appBar: MyAppbarWidget(),
@@ -66,6 +68,7 @@ class _BeautySalonCategory extends State<BeautySalonCategory> {
                       itemCount: ServicesModel.items.length,
                       itemBuilder: (context, index) {
                         return ItemWidget(
+                          
                           item: ServicesModel.items[index],
                         );
                       })

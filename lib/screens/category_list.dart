@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:etermin/models/salon.dart';
 import 'package:etermin/widgets/my_appbar_widget.dart';
 import 'package:etermin/widgets/salonListing_widget.dart';
@@ -7,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CategoryExpand extends StatefulWidget {
-  const CategoryExpand({ Key ? key }) : super(key: key);
+  final String pageId;
+  const CategoryExpand({Key? key, required this.pageId}) : super(key: key);
 
   @override
   _CategoryExpandState createState() => _CategoryExpandState();
@@ -15,29 +15,29 @@ class CategoryExpand extends StatefulWidget {
 
 class _CategoryExpandState extends State<CategoryExpand> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  
   @override
   void initState() {
     super.initState();
+    String _pageUrl = "http://etermin.cskaa.com:8282/api/customer/search-saloon?service=" ;
     loadSalonData();
   }
 
   loadSalonData() async {
     await Future.delayed(Duration(seconds: 2));
-    final salonJson =
-        await rootBundle.loadString("assets/files/salon.json");
+    final salonJson = await rootBundle.loadString("assets/files/salon.json");
     final decodedJson = jsonDecode(salonJson);
     final responseData = decodedJson["responseObject"];
-    var salonData = responseData["salons"];
-    SalonModel.items = List.from(salonData)
-        .map<Salon>((item) => Salon.fromMap(item))
+    var salonData = responseData["saloons"];
+    SalonModel.grp = List.from(salonData)
+        .map<Salon>((salon) => Salon.fromMap(salon))
         .toList();
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       key: scaffoldKey,
       appBar: MyAppbarWidget(),
       body: Padding(
@@ -54,28 +54,24 @@ class _CategoryExpandState extends State<CategoryExpand> {
             SizedBox(
               height: 20,
             ),
-            // Expanded(
-            //   child: (SalonModel.items.isNotEmpty)
-            //       ? GridView.builder(
-            //           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //             crossAxisCount: 2,
-            //             mainAxisSpacing: 10,
-            //             crossAxisSpacing: 10,
-            //             childAspectRatio: 0.9,
-            //           ),
-            //           itemCount: SalonModel.items.length,
-            //           itemBuilder: (context, index) {
-            //             return SalonListingWidget(
-            //               item: SalonModel.items[index],
-            //             );
-            //           }
-            //           )
-            //       : Center(
-            //           child: CircularProgressIndicator(),
-            //         ),
-            // ),
-            SalonListingWidget(),
-            SalonListingWidget(),
+            Expanded(
+              child: (SalonModel.grp.isNotEmpty)
+                  ? GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 1,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 1.2,
+                      ),
+                      itemCount: SalonModel.grp.length,
+                      itemBuilder: (context, index) {
+                        return SalonListingWidget(
+                          salon: SalonModel.grp[index],
+                        );
+                      })
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    ),
+            ),
           ],
         ),
       ),

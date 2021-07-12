@@ -1,8 +1,6 @@
 
 class ServicesModel {
-  static List<Item> items = [
-  
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
