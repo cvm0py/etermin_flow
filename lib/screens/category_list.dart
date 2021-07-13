@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:etermin/models/salon.dart';
 import 'package:etermin/widgets/my_appbar_widget.dart';
 import 'package:etermin/widgets/salonListing_widget.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/services.dart';
 
 class CategoryExpand extends StatefulWidget {
   final String pageId;
-  const CategoryExpand({Key? key, required this.pageId}) : super(key: key);
+  const CategoryExpand({Key? key,  required this.pageId}) : super(key: key);
 
   @override
   _CategoryExpandState createState() => _CategoryExpandState();
@@ -19,7 +20,6 @@ class _CategoryExpandState extends State<CategoryExpand> {
   @override
   void initState() {
     super.initState();
-    String _pageUrl = "http://etermin.cskaa.com:8282/api/customer/search-saloon?service=" ;
     loadSalonData();
   }
 
@@ -37,6 +37,7 @@ class _CategoryExpandState extends State<CategoryExpand> {
 
   @override
   Widget build(BuildContext context) {
+    String pageUrl = "http://etermin.cskaa.com:8282/api/customer/search-saloon?service=" + widget.pageId;
     return Scaffold(
       key: scaffoldKey,
       appBar: MyAppbarWidget(),

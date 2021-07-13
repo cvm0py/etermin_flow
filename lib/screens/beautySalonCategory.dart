@@ -3,6 +3,8 @@ import 'package:etermin/widgets/item_widget.dart';
 import 'package:etermin/widgets/my_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+
 import 'dart:convert';
 
 class BeautySalonCategory extends StatefulWidget {
@@ -23,22 +25,21 @@ class _BeautySalonCategory extends State<BeautySalonCategory> {
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    final servicesJson =
-        await rootBundle.loadString("assets/files/services.json");
-    final decodedJson = jsonDecode(servicesJson);
-    final responseData = decodedJson["responseObject"];
+    var response = await http.get(Uri.parse(
+        "http://etermin.cskaa.com:8282/api/customer/services?category=beauty"));
+    print('>' + response.body.toString());
+    final decodedJson = json.decode(response.toString());
+    print("--> " + decodedJson);
+    var responseData = decodedJson["responseObject"];
+
     var servicesData = responseData["services"];
-    ServicesModel.items = List.from(servicesData)
-        .map<Item>((item) => Item.fromMap(item))
-        .toList();
+    print("------"+servicesData.toString());
 
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
- 
-
     return Scaffold(
       key: scaffoldKey,
       appBar: MyAppbarWidget(),
@@ -68,7 +69,6 @@ class _BeautySalonCategory extends State<BeautySalonCategory> {
                       itemCount: ServicesModel.items.length,
                       itemBuilder: (context, index) {
                         return ItemWidget(
-                          
                           item: ServicesModel.items[index],
                         );
                       })

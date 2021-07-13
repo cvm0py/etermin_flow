@@ -17,9 +17,8 @@ class ItemWidget extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => CategoryExpand(
-                      pageId:pageId 
-                    )
-                    )
+                      pageId: pageId, 
+                    ))
                     );
       },
       child: Card(
