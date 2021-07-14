@@ -1,6 +1,5 @@
-
 class ServicesModel {
-  static List<Item> items = [];
+  static List<dynamic> items = [];
 }
 
 class Item {
@@ -9,7 +8,11 @@ class Item {
   final String description;
   final String image;
 
-  Item({required this.id,required this.name,required this.description, required this.image});
+  Item(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.image});
 
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
@@ -21,9 +24,9 @@ class Item {
   }
 
   toMap() => {
-    "id":id,
-    "name": name,
-    "description": description,
-    "logo": image,
-  };
+        "id": id,
+        "name": name,
+        "description": description,
+        "logo": image,
+      };
 }
